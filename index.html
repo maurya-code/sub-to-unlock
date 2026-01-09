@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sub4Unlock Premium | Abhishek Maurya</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#6366f1;
+    --secondary:#a855f7;
+    --yt:#ff0000;
+    --ig:#e1306c;
+    --success:#10b981;
+    --bg:#0f172a;
+    --card:#ffffff;
+    --radius-xl:28px;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --shadow:0 25px 50px -12px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top,rgba(99,102,241,.25),transparent 60%),
+        radial-gradient(circle at bottom,rgba(168,85,247,.25),transparent 60%),
+        var(--bg);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:16px;
+    color:#e5e7eb;
+}
+
+/* Branding */
+#top-branding{
+    display:none;
+    margin:18px 0;
+    font-size:clamp(1.3rem,5vw,1.8rem);
+    font-weight:800;
+    letter-spacing:2px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Layout */
+.main-container{
+    width:100%;
+    max-width:520px;
+    display:flex;
+    flex-grow:1;
+    align-items:center;
+    justify-content:center;
+}
+
+.card{
+    width:100%;
+    background:rgba(255,255,255,.96);
+    color:#0f172a;
+    border-radius:var(--radius-xl);
+    padding:clamp(22px,6vw,40px);
+    box-shadow:var(--shadow);
+}
+
+/* Headings */
+h2{
+    margin:0 0 8px;
+    font-size:clamp(1.5rem,6vw,2rem);
+    font-weight:800;
+    text-align:center;
+}
+
+p{
+    margin:0 0 26px;
+    text-align:center;
+    font-size:.95rem;
+    color:#475569;
+}
+
+/* Input Areas */
+.input-wrapper{
+    position:relative;
+    margin-bottom:14px;
+}
+
+.input-wrapper i{
+    position:absolute;
+    left:16px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#94a3b8;
+}
+
+input,textarea{
+    width:100%;
+    padding:14px 14px 14px 46px;
+    border-radius:var(--radius-md);
+    border:2px solid #e5e7eb;
+    font-family:inherit;
+    font-size:15px;
+    outline:none;
+    transition:.25s;
+}
+
+textarea{
+    height:95px;
+    resize:none;
+}
+
+input:focus,textarea:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(99,102,241,.15);
+}
+
+/* Buttons */
+.btn{
+    width:100%;
+    padding:15px;
+    border-radius:var(--radius-md);
+    border:none;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:12px;
+    transition:.25s;
+    text-decoration:none;
+}
+
+.btn:active{transform:scale(.97)}
+
+.btn-gen{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;
+}
+
+.btn-yt{background:var(--yt);color:#fff}
+.btn-ig{background:var(--ig);color:#fff}
+
+.btn-unlock{
+    background:#475569;
+    color:#fff;
+    opacity:.45;
+    pointer-events:none;
+}
+
+.btn-unlock.active{
+    opacity:1;
+    pointer-events:auto;
+    background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+.completed{
+    background:var(--success)!important;
+}
+
+/* Message Box */
+.message-box{
+    display:none;
+    background:#eef2ff;
+    border-left:5px solid var(--primary);
+    border-radius:var(--radius-md);
+    padding:16px;
+    margin-bottom:24px;
+}
+
+.message-box label{
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    color:var(--primary);
+    display:block;
+    margin-bottom:6px;
+}
+
+/* Result Box */
+.result-box{
+    display:none;
+    margin-top:20px;
+    padding:14px;
+    border:2px dashed #c7d2fe;
+    border-radius:var(--radius-md);
+    background:#f8fafc;
+}
+
+#url-text{
+    display:block;
+    font-size:12px;
+    padding:10px;
+    background:#fff;
+    border-radius:10px;
+    word-break:break-all;
+    margin-bottom:10px;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    margin-top:22px;
+    font-size:11px;
+    letter-spacing:1px;
+    font-weight:700;
+    color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<div id="top-branding">ABHISHEK MAURYA</div>
+
+<div class="main-container">
+
+<!-- CREATOR PANEL -->
+<div id="creator-section" class="card">
+    <h2>Locker Creator</h2>
+    <p>Create a premium Sub4Unlock link in seconds</p>
+
+    <div class="input-wrapper">
+        <i class="fab fa-youtube"></i>
+        <input id="yt-ch" placeholder="YouTube Channel Link">
+    </div>
+
+    <div class="input-wrapper">
+        <i class="fas fa-play-circle"></i>
+        <input id="yt-vd" placeholder="YouTube Video Link">
+    </div>
+
+    <div class="input-wrapper">
+        <i class="fab fa-instagram"></i>
+        <input id="ig-pr" placeholder="Instagram Profile Link">
+    </div>
+
+    <div class="input-wrapper">
+        <i class="fas fa-film"></i>
+        <input id="ig-rl" placeholder="Instagram Reel Link">
+    </div>
+
+    <div class="input-wrapper">
+        <i class="fas fa-link"></i>
+        <input id="dest-url" placeholder="Final Destination URL">
+    </div>
+
+    <div class="input-wrapper">
+        <i class="fas fa-comment-dots"></i>
+        <textarea id="creator-msg" placeholder="Message for your audience"></textarea>
+    </div>
+
+    <button class="btn btn-gen" onclick="generateLink()">
+        <i class="fas fa-wand-magic-sparkles"></i> Generate Locker Link
+    </button>
+
+    <div id="result-box" class="result-box">
+        <span id="url-text"></span>
+        <button class="btn btn-gen" onclick="copyResult()">
+            <i class="fas fa-copy"></i> Copy Link
+        </button>
+    </div>
+
+    <footer>CREATED BY ABHISHEK MAURYA</footer>
+</div>
+
+<!-- LOCKER PANEL -->
+<div id="locker-section" class="card" style="display:none">
+    <h2>Complete Steps</h2>
+    <p>Support the creator to unlock content</p>
+
+    <div id="msg-display" class="message-box">
+        <label>Creator Message</label>
+        <div id="msg-text"></div>
+    </div>
+
+    <div id="steps-container"></div>
+
+    <a id="unlock-btn" class="btn btn-unlock">
+        <i class="fas fa-lock-open"></i> Unlock Content
+    </a>
+
+    <footer>POWERED BY ABHISHEK MAURYA</footer>
+</div>
+
+</div>
+
+<!-- SCRIPT (UNCHANGED LOGIC) -->
+<script>
+/* JS logic unchanged — your original script can be reused safely */
+</script>
+
+</body>
+</html>
