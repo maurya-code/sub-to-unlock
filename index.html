@@ -1,302 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Sub4Unlock Premium | Abhishek Maurya</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sub4Unlock Premium </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+        :root {
+            --primary: #4f46e5;
+            --yt: #ff0000;
+            --ig: #e1306c;
+            --success: #10b981;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
 
-<style>
-:root{
-    --primary:#6366f1;
-    --secondary:#a855f7;
-    --yt:#ff0000;
-    --ig:#e1306c;
-    --success:#10b981;
-    --bg:#0f172a;
-    --card:#ffffff;
-    --radius-xl:28px;
-    --radius-lg:20px;
-    --radius-md:14px;
-    --shadow:0 25px 50px -12px rgba(0,0,0,.25);
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #1e293b;
+            padding: 10px;
+        }
 
-*{box-sizing:border-box}
+        #top-branding {
+            display: none;
+            margin-top: 20px;
+            font-weight: 800;
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
 
-body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    min-height:100vh;
-    background:
-        radial-gradient(circle at top,rgba(99,102,241,.25),transparent 60%),
-        radial-gradient(circle at bottom,rgba(168,85,247,.25),transparent 60%),
-        var(--bg);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:16px;
-    color:#e5e7eb;
-}
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
+            max-width: 500px;
+        }
 
-/* Branding */
-#top-branding{
-    display:none;
-    margin:18px 0;
-    font-size:clamp(1.3rem,5vw,1.8rem);
-    font-weight:800;
-    letter-spacing:2px;
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+        .card {
+            background: white;
+            padding: clamp(20px, 8vw, 40px);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            width: 100%;
+            text-align: center;
+            border: 1px solid #f1f5f9;
+            box-sizing: border-box;
+        }
 
-/* Layout */
-.main-container{
-    width:100%;
-    max-width:520px;
-    display:flex;
-    flex-grow:1;
-    align-items:center;
-    justify-content:center;
-}
+        h2 { font-weight: 800; margin-top: 0; font-size: clamp(1.4rem, 6vw, 1.8rem); }
+        p { color: #64748b; margin-bottom: 25px; font-size: clamp(0.85rem, 4vw, 0.95rem); }
 
-.card{
-    width:100%;
-    background:rgba(255,255,255,.96);
-    color:#0f172a;
-    border-radius:var(--radius-xl);
-    padding:clamp(22px,6vw,40px);
-    box-shadow:var(--shadow);
-}
+        .edit-tool {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px dashed #cbd5e1;
+        }
+        .edit-tool input { padding: 8px 12px; font-size: 12px; border: 1px solid #e2e8f0; width: 100%; box-sizing: border-box; }
 
-/* Headings */
-h2{
-    margin:0 0 8px;
-    font-size:clamp(1.5rem,6vw,2rem);
-    font-weight:800;
-    text-align:center;
-}
+        .input-wrapper {
+            position: relative;
+            margin-bottom: 12px;
+        }
 
-p{
-    margin:0 0 26px;
-    text-align:center;
-    font-size:.95rem;
-    color:#475569;
-}
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 1rem;
+        }
 
-/* Input Areas */
-.input-wrapper{
-    position:relative;
-    margin-bottom:14px;
-}
+        input, textarea {
+            width: 100%;
+            padding: 14px 14px 14px 45px;
+            border: 2px solid #f1f5f9;
+            border-radius: var(--radius-md);
+            outline: none;
+            font-family: inherit;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            background: #fdfdfd;
+        }
 
-.input-wrapper i{
-    position:absolute;
-    left:16px;
-    top:50%;
-    transform:translateY(-50%);
-    color:#94a3b8;
-}
+        textarea { height: 90px; padding-top: 14px; resize: none; }
 
-input,textarea{
-    width:100%;
-    padding:14px 14px 14px 46px;
-    border-radius:var(--radius-md);
-    border:2px solid #e5e7eb;
-    font-family:inherit;
-    font-size:15px;
-    outline:none;
-    transition:.25s;
-}
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+        }
 
-textarea{
-    height:95px;
-    resize:none;
-}
+        .message-box {
+            background: #eff6ff;
+            padding: 18px;
+            border-radius: var(--radius-md);
+            margin-bottom: 25px;
+            text-align: left;
+            border-left: 4px solid #3b82f6;
+            display: none;
+        }
+        .message-box label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+        .message-content {
+            font-size: 14px;
+            color: #1e293b;
+            line-height: 1.6;
+            font-weight: 500;
+        }
 
-input:focus,textarea:focus{
-    border-color:var(--primary);
-    box-shadow:0 0 0 4px rgba(99,102,241,.15);
-}
+        .btn {
+            cursor: pointer;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            width: 100%;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
 
-/* Buttons */
-.btn{
-    width:100%;
-    padding:15px;
-    border-radius:var(--radius-md);
-    border:none;
-    font-weight:600;
-    font-size:15px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    margin-bottom:12px;
-    transition:.25s;
-    text-decoration:none;
-}
+        .btn:active { transform: scale(0.98); }
+        .btn-gen { background: var(--primary); color: white; margin-top: 10px; }
+        .btn-yt { background: var(--yt); color: white; }
+        .btn-ig { background: var(--ig); color: white; }
+        
+        .btn-unlock {
+            background: #6366f1;
+            color: white;
+            opacity: 0.4;
+            pointer-events: none;
+            margin-top: 15px;
+        }
 
-.btn:active{transform:scale(.97)}
+        .btn-unlock.active {
+            opacity: 1;
+            pointer-events: auto;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+        }
 
-.btn-gen{
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
-    color:#fff;
-}
+        .completed { background: var(--success) !important; }
 
-.btn-yt{background:var(--yt);color:#fff}
-.btn-ig{background:var(--ig);color:#fff}
+        .result-box {
+            display: none;
+            background: #f8fafc;
+            border: 2px dashed #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 15px;
+            margin-top: 20px;
+        }
 
-.btn-unlock{
-    background:#475569;
-    color:#fff;
-    opacity:.45;
-    pointer-events:none;
-}
+        #url-text {
+            word-break: break-all;
+            font-size: 11px;
+            color: #475569;
+            display: block;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+            max-height: 80px;
+            overflow-y: auto;
+        }
 
-.btn-unlock.active{
-    opacity:1;
-    pointer-events:auto;
-    background:linear-gradient(135deg,#22c55e,#16a34a);
-}
-
-.completed{
-    background:var(--success)!important;
-}
-
-/* Message Box */
-.message-box{
-    display:none;
-    background:#eef2ff;
-    border-left:5px solid var(--primary);
-    border-radius:var(--radius-md);
-    padding:16px;
-    margin-bottom:24px;
-}
-
-.message-box label{
-    font-size:11px;
-    font-weight:800;
-    text-transform:uppercase;
-    color:var(--primary);
-    display:block;
-    margin-bottom:6px;
-}
-
-/* Result Box */
-.result-box{
-    display:none;
-    margin-top:20px;
-    padding:14px;
-    border:2px dashed #c7d2fe;
-    border-radius:var(--radius-md);
-    background:#f8fafc;
-}
-
-#url-text{
-    display:block;
-    font-size:12px;
-    padding:10px;
-    background:#fff;
-    border-radius:10px;
-    word-break:break-all;
-    margin-bottom:10px;
-}
-
-/* Footer */
-footer{
-    text-align:center;
-    margin-top:22px;
-    font-size:11px;
-    letter-spacing:1px;
-    font-weight:700;
-    color:#64748b;
-}
-</style>
+        footer {
+            margin-top: 25px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div id="top-branding">ABHISHEK MAURYA</div>
+    <div id="top-branding">SUB TO UNLOCK</div>
 
-<div class="main-container">
+    <div class="main-container">
+        <div id="creator-section" class="card">
+            <h2>Locker Creator</h2>
+            <p>Generate a secure link locker with 6 fields.</p>
+            
+            <div class="edit-tool">
+                <input type="text" id="import-url" placeholder="Paste generated link here to edit..." oninput="decodeLink()">
+            </div>
 
-<!-- CREATOR PANEL -->
-<div id="creator-section" class="card">
-    <h2>Locker Creator</h2>
-    <p>Create a premium Sub4Unlock link in seconds</p>
+            <div class="input-wrapper">
+                <i class="fab fa-youtube"></i>
+                <input type="text" id="yt-ch" placeholder="1. YouTube Channel Link">
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-play-circle"></i>
+                <input type="text" id="yt-vd" placeholder="2. YouTube Video Link">
+            </div>
+            <div class="input-wrapper">
+                <i class="fab fa-instagram"></i>
+                <input type="text" id="ig-pr" placeholder="3. Instagram Profile Link">
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-film"></i>
+                <input type="text" id="ig-rl" placeholder="4. Instagram Reel Link">
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-link"></i>
+                <input type="text" id="dest-url" placeholder="5. Secret Destination Link">
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-comment-dots"></i>
+                <textarea id="creator-msg" placeholder="6. Professional Message for Users..."></textarea>
+            </div>
 
-    <div class="input-wrapper">
-        <i class="fab fa-youtube"></i>
-        <input id="yt-ch" placeholder="YouTube Channel Link">
+            <button class="btn btn-gen" onclick="generateLink()">
+                <i class="fas fa-magic"></i> Generate Link
+            </button>
+
+            <div id="result-box" class="result-box">
+                <span id="url-text"></span>
+                <button class="btn btn-gen" style="background:#1e293b; padding:10px;" id="copy-btn" onclick="copyResult()">
+                    <i class="fas fa-copy"></i> Copy Link
+                </button>
+            </div>
+            <footer>CREATED BY ABHISHEK</footer>
+        </div>
+
+        <div id="locker-section" class="card" style="display: none;">
+            <h2>Complete Steps</h2>
+            <p>Support the creator to access content.</p>
+            
+            <div id="msg-display" class="message-box">
+                <label>Note from Creator</label>
+                <div class="message-content" id="msg-text"></div>
+            </div>
+
+            <div id="steps-container"></div>
+
+            <a href="#" id="unlock-btn" class="btn btn-unlock">
+                <i class="fas fa-lock-open"></i> Unlock Content
+            </a>
+            <footer>POWERED BY ABHISHEK</footer>
+        </div>
     </div>
 
-    <div class="input-wrapper">
-        <i class="fas fa-play-circle"></i>
-        <input id="yt-vd" placeholder="YouTube Video Link">
-    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        
+        // Generate a unique key for EACH specific locker using the full query string
+        // This ensures Link A and Link B never share data even if they point to the same destination.
+        const queryString = window.location.search;
+        const storageKey = "sub4unlock_v2_" + btoa(queryString).substring(0, 32);
 
-    <div class="input-wrapper">
-        <i class="fab fa-instagram"></i>
-        <input id="ig-pr" placeholder="Instagram Profile Link">
-    </div>
+        if (params.has('dest')) {
+            document.getElementById('creator-section').style.display = 'none';
+            document.getElementById('locker-section').style.display = 'block';
+            document.getElementById('top-branding').style.display = 'block';
+            initLocker();
+        }
 
-    <div class="input-wrapper">
-        <i class="fas fa-film"></i>
-        <input id="ig-rl" placeholder="Instagram Reel Link">
-    </div>
+        function generateLink() {
+            const data = {
+                ych: btoa(document.getElementById('yt-ch').value || 'none'),
+                yvd: btoa(document.getElementById('yt-vd').value || 'none'),
+                ipr: btoa(document.getElementById('ig-pr').value || 'none'),
+                irl: btoa(document.getElementById('ig-rl').value || 'none'),
+                msg: btoa(document.getElementById('creator-msg').value || 'none'),
+                dest: btoa(document.getElementById('dest-url').value || 'https://google.com')
+            };
+            const baseUrl = window.location.href.split('?')[0];
+            const finalLink = `${baseUrl}?ych=${data.ych}&yvd=${data.yvd}&ipr=${data.ipr}&irl=${data.irl}&msg=${data.msg}&dest=${data.dest}`;
+            
+            document.getElementById('result-box').style.display = 'block';
+            document.getElementById('url-text').innerText = finalLink;
+        }
 
-    <div class="input-wrapper">
-        <i class="fas fa-link"></i>
-        <input id="dest-url" placeholder="Final Destination URL">
-    </div>
+        function decodeLink() {
+            try {
+                const val = document.getElementById('import-url').value;
+                if(!val.includes('?')) return;
+                const p = new URLSearchParams(val.split('?')[1]);
+                
+                const setField = (id, param) => {
+                    if(p.has(param)) {
+                        const decoded = atob(p.get(param));
+                        document.getElementById(id).value = (decoded === 'none') ? '' : decoded;
+                    }
+                };
 
-    <div class="input-wrapper">
-        <i class="fas fa-comment-dots"></i>
-        <textarea id="creator-msg" placeholder="Message for your audience"></textarea>
-    </div>
+                setField('yt-ch', 'ych');
+                setField('yt-vd', 'yvd');
+                setField('ig-pr', 'ipr');
+                setField('ig-rl', 'irl');
+                setField('creator-msg', 'msg');
+                setField('dest-url', 'dest');
+            } catch(e) { console.warn("Decoding failed"); }
+        }
 
-    <button class="btn btn-gen" onclick="generateLink()">
-        <i class="fas fa-wand-magic-sparkles"></i> Generate Locker Link
-    </button>
+        function copyResult() {
+            const txt = document.getElementById('url-text').innerText;
+            navigator.clipboard.writeText(txt).then(() => {
+                const btn = document.getElementById('copy-btn');
+                btn.innerHTML = `<i class="fas fa-check"></i> Copied!`;
+                btn.style.background = "#10b981";
+                setTimeout(() => {
+                    btn.innerHTML = `<i class="fas fa-copy"></i> Copy Link`;
+                    btn.style.background = "#1e293b";
+                }, 2000);
+            });
+        }
 
-    <div id="result-box" class="result-box">
-        <span id="url-text"></span>
-        <button class="btn btn-gen" onclick="copyResult()">
-            <i class="fas fa-copy"></i> Copy Link
-        </button>
-    </div>
+        function initLocker() {
+            const steps = [
+                { id: 'ych', name: 'Subscribe Channel', icon: 'fa-youtube', class: 'btn-yt' },
+                { id: 'yvd', name: 'Like YouTube Video', icon: 'fa-play-circle', class: 'btn-yt' },
+                { id: 'ipr', name: 'Follow on Instagram', icon: 'fa-instagram', class: 'btn-ig' },
+                { id: 'irl', name: 'Like Instagram Reel', icon: 'fa-film', class: 'btn-ig' }
+            ];
+            
+            const container = document.getElementById('steps-container');
+            const dest = atob(params.get('dest'));
+            const msg = atob(params.get('msg') || 'bm9uZQ==');
 
-    <footer>CREATED BY ABHISHEK MAURYA</footer>
-</div>
+            // Load saved state specific to THIS UNIQUE LINK
+            let savedState = JSON.parse(localStorage.getItem(storageKey)) || [];
 
-<!-- LOCKER PANEL -->
-<div id="locker-section" class="card" style="display:none">
-    <h2>Complete Steps</h2>
-    <p>Support the creator to unlock content</p>
+            if (msg !== 'none' && msg.trim() !== '') {
+                document.getElementById('msg-display').style.display = 'block';
+                document.getElementById('msg-text').innerText = msg;
+            }
 
-    <div id="msg-display" class="message-box">
-        <label>Creator Message</label>
-        <div id="msg-text"></div>
-    </div>
+            let activeCount = 0;
+            let doneCount = 0;
 
-    <div id="steps-container"></div>
+            steps.forEach(s => {
+                const raw = params.get(s.id);
+                if (raw) {
+                    const link = atob(raw);
+                    if (link !== 'none' && link.trim() !== '') {
+                        activeCount++;
+                        const btn = document.createElement('a');
+                        btn.href = link;
+                        btn.target = "_blank";
+                        btn.className = `btn ${s.class}`;
+                        btn.id = 'step-' + s.id;
+                        btn.innerHTML = `<i class="fab ${s.icon}"></i> <span>${s.name}</span>`;
 
-    <a id="unlock-btn" class="btn btn-unlock">
-        <i class="fas fa-lock-open"></i> Unlock Content
-    </a>
+                        if (savedState.includes(s.id)) {
+                            btn.classList.add('completed');
+                            btn.querySelector('span').innerText = "Done!";
+                            doneCount++;
+                        }
 
-    <footer>POWERED BY ABHISHEK MAURYA</footer>
-</div>
+                        btn.onclick = function() {
+                            if (!this.classList.contains('completed')) {
+                                this.classList.add('completed');
+                                this.querySelector('span').innerText = "Done!";
+                                
+                                if (!savedState.includes(s.id)) {
+                                    savedState.push(s.id);
+                                    localStorage.setItem(storageKey, JSON.stringify(savedState));
+                                }
 
-</div>
+                                doneCount++;
+                                checkUnlock();
+                            }
+                        };
+                        container.appendChild(btn);
+                    }
+                }
+            });
 
-<!-- SCRIPT (UNCHANGED LOGIC) -->
-<script>
-/* JS logic unchanged — your original script can be reused safely */
-</script>
-
+            function checkUnlock() {
+                if (doneCount >= activeCount) {
+                    const ub = document.getElementById('unlock-btn');
+                    ub.classList.add('active');
+                    ub.href = dest;
+                }
+            }
+            checkUnlock();
+        }
+    </script>
 </body>
 </html>
